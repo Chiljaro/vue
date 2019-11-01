@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="datos">
+                <li>{{ datos.title }}</li>
+            </template>
+        </mis-tareas>
+
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="datos">
+                <p>{{ datos.title }}</p>
+            </template>
+        </mis-tareas>
+
+        <pre>{{ $data }}</pre>
+    </main>
+    
+    <template id="misTareasTemplate">
+        <ul>
+            <slot name="tarea" v-for="tarea in listado" :title="tarea.titulo"></slot>
+            <!-- <li v-for="tarea in listado">
+                {{ tarea.titulo }}
+            </li> -->
+        </ul>
+    </template>
+
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

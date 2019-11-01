@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <button @click="mostrarExito = true">Exito</button>
+        <button @click="mostrarError = true">Error</button>
+        <button @click="mostrarAdvertencia = true">Advertencia</button>
+
+        <alerta @ocultar="mostrarExito = false" v-show="mostrarExito" tipo="alerta--exito" posicion="alerta--arriba-derecha">
+            <template slot="header">
+                Todo ok :)
+            </template>
+            <template>Este es el nuevo contenido de la alerta :)</template>
+            <template slot="footer">
+                Puedes continuar con normalidad
+            </template>
+        </alerta>
+
+        <alerta @ocultar="mostrarError = false" v-show="mostrarError" tipo="alerta--error" posicion="alerta--arriba-izquierda">
+            <template slot="header">
+                Error fatal
+            </template>
+            <template>El mundo está por imposionar</template>
+            <template slot="footer">
+                RIP
+            </template>
+        </alerta>
+
+        <alerta @ocultar="mostrarAdvertencia = false" v-show="mostrarAdvertencia" tipo="alerta--advertencia" posicion="alerta--abajo-izquierda">
+            <template slot="header">
+                Atención
+            </template>
+            <template>Este es el nuevo contenido de la alerta :)</template>
+            <template slot="footer">
+                Puedes continuar con normalidad
+            </template>
+        </alerta>
+
+        <pre>{{ $data }}</pre>
+    </main>
+
+
+    
+
+    <!-- Templates -->
+    <template id="alertaTemplate">
+        <section class="alerta" :class="[tipo, posicion]">
+            <header class="alerta__header">
+                <a href="#" @click="ocultarWidget">Cerrar</a>
+                <slot name="header">
+                    Hola
+                </slot>
+            </header>
+            <div class="alerta__contenido">
+                <slot>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, 
+                    at? Fugit tempore.
+                </slot>
+            </div>
+            <footer class="alerta__footer">
+                <slot name="footer">
+                    este es el texto del footer
+                </slot>
+            </footer>
+        </section>
+    </template>
+    
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

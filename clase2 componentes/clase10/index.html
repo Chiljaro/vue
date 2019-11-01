@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <button @click="seleccionado = 'lista-tareas'">Tareas</button>
+        <button @click="seleccionado = 'contacto'">Contacto</button>
+        <button @click="seleccionado = 'bio'">Biografia</button>
+
+        <component :is="seleccionado"></component>
+
+        <!-- <lista-tareas></lista-tareas>
+        <contacto></contacto>
+        <bio></bio> -->
+        <pre>{{ $data }}</pre>
+    </main>
+
+
+    <!-- Templates -->
+    <template id="listaTareasTemplate">
+        <div>
+            <h1><slot></slot></h1>
+            <ul>
+                <tarea v-for='tarea in tareas' :tarea='tarea'></tarea>
+            </ul>
+            <hr>
+        </div> 
+    </template>
+
+    <template id="contactoTemplate">
+        <div>
+            <a href="mailto:juan@media.es">juan@media.es</a><hr></div>
+    </template>
+
+
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

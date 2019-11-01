@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Curso Vue</title>
+</head>
+<body>
+    <main>
+        <!-- <h1>{{ mensaje }}</h1>
+        <input type="text" v-model='mensaje'>
+        <pre>{{ $data }}</pre> -->
+
+        <!-- Clase 2 -->
+        <!-- <h1 v-if='conectado'>Estoy conectado</h1>
+        <h2 v-if='edad < 18'>No puedes entrar</h2>
+        <h2 v-else-if='edad > 200'>Eres inmortal</h2>
+        <h2 v-else>Puedes entrar</h2>
+
+        <template v-if='conectado'>
+            <h3>Bimevenido Juan</h3>
+            <ul>
+                <li>
+                    <a href="#">Mis Datos</a>
+                    <a href="#">Mensaje</a>
+                    <a href="#">Salir</a>
+                </li>
+            </ul>
+        </template>
+        <h4 v-else>No estas conectado</h4> -->
+
+        <!-- Clase 3 -->
+        <!-- 
+            Matriz
+        <ul>
+            <li v-for='dia in laborables'>{{ dia }}</li>
+        </ul>
+
+        Matriz de Objetos
+        <ul>
+            <li v-for="(tarea, index) in tareas">
+                {{ index + 1 }} - {{ tarea.nombre }} <small>({{ tarea.prioridad }})</small>
+            </li>
+        </ul> 
+
+        Matriz de objetos Collection
+        <ul>
+            <li v-for="(value, key, index) in persona">
+                {{ index }} - {{ key }}: {{ value }}
+            </li>
+        </ul>
+        
+        
+        Clase 6
+        <ul>
+            <li v-for="tarea in tareas">
+                {{tarea}}
+            </li>
+        </ul>
+        <form v-on:submit.prevent='agregarTarea'>
+            <input type="text" v-model='nuevaTarea' placeholder="Introducir tu tarea">
+            <input type="submit" value="Enviar tarea" >
+        </form>
+
+        -->
+
+        <!-- Case 7 -->
+
+        <!-- <h1>{{mensajeAlReves}}</h1>
+
+        <ul>
+            <li v-for='tarea in tareasPorAntiguedad'>
+               {{ tarea.titulo }}
+            </li>
+        </ul> -->
+
+        <!-- Clase 8 -->
+
+        <h1>{{ mensaje }}</h1>
+        <input type="search" v-model='busqueda' placeholder="buscar Juego">
+        <ul>
+            <li v-for='juego in buscarJuego'>
+                {{ juego.titulo }}
+            </li>
+        </ul>
+
+        <input type="range" min='0' max='10' v-model='minimo'>
+        <span>{{ minimo }}</span>
+        <pre>{{ $data }}</pre>
+    </main>
+    
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
